@@ -1,0 +1,38 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="header">
+        <a class="aLogo" href="#default" ><img src="~/images/Logo_47.png"></a>
+        <div class="header-right">
+            <a class="sactive" href="../StadiumBooking/Index"><bre>  الرئيسية</bre></a>
+
+            <a href="../StadiumBooking/Index#Tawasel"><bre>  تواصل معنا</bre></a>
+            <a href="../StadiumBooking/Index#WhoWeAre"><bre>  من نحن؟</bre></a>
+            <a href="../StadiumBooking/Login" style="padding-top:1px"><button class="btnLoginHome" style="color:white;">تسجيل الدخول</button></a>
+            <a href="../StadiumBooking/LogOff" style="padding-top:1px"><button class="btnLoginHome" style="color:white;">تسجيل الخروج</button></a>
+
+        </div>
+    </div>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <br />
+        <footer>
+            <p style="text-align:center;color:darkgreen">&copy; @DateTime.Now.Year - Programmed by FAM team.</p>
+        </footer>
+        <br />
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+﻿@model StadiumBookingProject.Models.Stadiums
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section id="Home" class="BackColorOfStadium2">
+    <br /><br />
+    <div style="margin-left:92px; position:absolute; top:0px; width:750px;
+    height:600px;">
+        <img class="imageOfStadium1" src="~/images/pale-playing-footballfo.png">
+    </div>
+    <div style="margin-right:130px; position:relative;top:30px">
+        <p class="HomePageHead">
+            حجز الكتروني
+            <br />
+            لملاعب
+            <span>الستين</span>
+
+            <div style="height:10px"></div>
+        </p>
+        <p class="FirstparagraphOfHome1">نمودج حجز مطور </p>
+        <p class="FirstparagraphOfHome1">خاصية العربون</p>
+        <p class="FirstparagraphOfHome1">الدفع الإلكتروني</p>
+        <p class="FirstparagraphOfHome1"> خدمات متنوعة</p>
+        <br />
+        <a href="../StadiumBooking/Login"><button class="btnLoginHome">تسجيل الدخول</button></a>
+    </div>
+
+
+
+</section>
+
+<section class="BackColorOfStadium">
+    <div>
+        <br><br>
+        <p class="BackColorOfStadiumHEAD">ملاعب الستين </p>
+        <p class="BackColorOfStadiumPARA">:احجز في أحد الملاعب التالية</p>
+
+        <br><br /><br><br />
+
+
+        <table class="TableOfStadium">
+
+            <tr>
+                @using (Html.BeginForm("Index", "StadiumBooking", new { id1 = 3 }, FormMethod.Post))
+            {
+                    <td>
+                        <div align="center" class="containerStadium">
+                            <img class="containerStadiumIMG" src=" ~/images/ملعب-خماسي-محافظة-القاهرة.jpeg">
+                            <button type="submit" class="btn" >حجز</button>
+
+                            <p class="containerStadium1">ملعب رقم 3</p>
+                        </div>
+                    </td>
+                }
+
+                @using (Html.BeginForm("Index", "StadiumBooking", new { id1 = 2 }, FormMethod.Post))
+            {
+                    <td>
+                        <div align="center" class="containerStadium">
+                            <img class="containerStadiumIMG" src="~/images/ملعب-كرة-قدم.jpg">
+                            <button class="btn">حجز</button>
+                            <p class="containerStadium1">ملعب رقم 2</p>
+                        </div>
+                    </td>
+                }
+
+                @using (Html.BeginForm("Index", "StadiumBooking", new { id1 = 1 }, FormMethod.Post))
+                {
+                    <td>
+                        <div align="center" class="containerStadium">
+                            <img class="containerStadiumIMG" src="~/images/ملعب.jpg">
+                            <button class="btn" >حجز</button>
+                            <p class="containerStadium1">ملعب رقم 1</p>
+                        </div>
+                    </td>
+                }
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+
+<section id="WhoWeAre" class="BackColorOfStadium2">
+    <br><br><br>
+    <div style="margin-left:170px;padding-bottom:14px; position:absolute">
+        <img class="imageOfStadium2" src="~/images/pixeltrue-vision-4.png" style="width:600px;height:500px;">
+    </div>
+    <div style="margin-right:200px;margin-top:4%;">
+        <p class="HomePageHead2">
+            من نحن
+
+        </p>
+        <br /><br />
+        <p class="FirstparagraphOfHome1">.ملاعب الستين </p>
+
+        <p class="FirstparagraphOfHome1">الموقع: حضرموت /المكلا/فوه</p>
+        <p class="FirstparagraphOfHome1">مقابل مسابح الستين</p>
+        <p class="FirstparagraphOfHome1">أنشئت عام 2018</p>
+        <div>
+
+        </div>
+    </div>
+
+
+</section>
+
+<section id="Tawasel" class="BackColorOfStadium">
+    <div style="margin-right:70px;">
+        <img class="imageOfStadium2" src="~/images/pixeltrue-contact3.png">
+    </div>
+    <div class="HomePageHead3DIV" style="margin-left:200px;padding-bottom:14px; position:absolute;text-align:right">
+        <p class="HomePageHead3">
+            تواصل معنا
+        </p>
+        <br /><br />
+        <p class="FirstparagraphOfHome2">.رقم الجوال:778954678 </p>
+        <p class="FirstparagraphOfHome2">.رقم الجوال:778954678</p>
+        <p class="FirstparagraphOfHome2"><a href="">asteen@gmail.com</a>:الفيسبوك</p>
+        <p class="FirstparagraphOfHome2"><a href="">asteen@gmail.com</a> :الإنستقرام</p>
+
+    </div>
+   
+  
+</section>
+
+

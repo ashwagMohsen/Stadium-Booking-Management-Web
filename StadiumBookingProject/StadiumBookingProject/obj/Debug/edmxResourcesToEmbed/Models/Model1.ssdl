@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="WonerType" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Reservations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="nvarchar" MaxLength="50" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="hours" Type="int" />
+    <Property Name="earnest" Type="nvarchar" MaxLength="50" />
+    <Property Name="residual" Type="nvarchar" MaxLength="50" />
+    <Property Name="price" Type="nvarchar" MaxLength="50" />
+    <Property Name="time" Type="int" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stadium_Id" Type="int" />
+    <Property Name="Acc_Id" Type="int" />
+    <Property Name="Serv_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Serv_Id" />
+    </Key>
+    <Property Name="Serv_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Serv_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Stadiums">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Hour" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Reservations_Accounts">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+    <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="Acc_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservations_Services">
+    <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+    <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="Serv_Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="Serv_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservations_Stadiums">
+    <End Role="Stadiums" Type="Self.Stadiums" Multiplicity="0..1" />
+    <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stadiums">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="Stadium_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookingModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stadiums" EntityType="Self.Stadiums" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Reservations_Accounts" Association="Self.FK_Reservations_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservations_Services" Association="Self.FK_Reservations_Services">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservations_Stadiums" Association="Self.FK_Reservations_Stadiums">
+      <End Role="Stadiums" EntitySet="Stadiums" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

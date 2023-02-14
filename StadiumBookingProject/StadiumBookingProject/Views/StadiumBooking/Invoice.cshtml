@@ -1,0 +1,105 @@
+﻿@*@model StadiumBookingProject.Models.Reservations*@
+@using StadiumBookingProject.Models;
+@using System.Collections;
+@model List<Reservations>
+@{
+    ViewBag.Title = "Invoice";
+}
+
+
+@foreach (var i in Model)
+{
+    @*@using (Html.BeginForm("Create", "Reservations", new { id = i.id }, FormMethod.Post))
+        {*@
+    <div class="container2">
+        <div class="brand-section">
+            <div class="row">
+                <div class="col-6">
+                    <h1 class="text-white">BOOKING INVOICE</h1>
+                </div>
+                @*<div class="col-6">
+                        <div class="company-details">
+                            <p class="text-white">assdad asd  asda asdad a sd</p>
+                            <p class="text-white">assdad asd asd</p>
+                            <p class="text-white">+91 888555XXXX</p>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+
+        <div class="body-section">
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="heading">Invoice No.: 001</h2>
+                    <p class="sub-heading">Tracking No. fabcart2025 </p>
+                    <p class="sub-heading">Order Date: @i.date</p>
+                    <p class="sub-heading">Email Address: @i.Accounts.Email </p>
+                </div>
+                <div class="col-6">
+                    <p class="sub-heading">Full Name:@i.full_name  </p>
+                    <p class="sub-heading">Phone Number:@i.mobile  </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-section">
+            <h3 class="heading">DATA</h3>
+            <br>
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th class="w-20">Price</th>
+                        <th class="w-20">Hours</th>
+                        <th class="w-20">Time</th>
+                        <th class="w-20">Earnest</th>
+                        <th class="w-20">Reasidual</th>
+                        <th class="w-20">Stadium Number</th>
+                        <th class="w-20">Service Name</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@i.price</td>
+                        <td>@i.hours</td>
+                        <td>@i.time</td>
+                        <td>@i.earnest</td>
+                        <td>@i.residual</td>
+                        <td>@i.Stadium_Id</td>
+                        <td>@i.Services.Serv_Name</td>
+                    </tr>
+                    @*<tr>
+                            <td colspan="3" class="text-right">Sub Total</td>
+                            <td> 10.XX</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">Tax Total %1X</td>
+                            <td> 2</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">Grand Total</td>
+                            <td> 12.XX</td>
+                        </tr>*@
+                </tbody>
+            </table>
+            <br>
+            <h3 class="heading">Payment Status: Paid</h3>
+            <h3 class="heading">Payment Mode: Cash on Delivery</h3>
+        </div>
+
+        <div class="body-section">
+            <p>
+                &copy; Copyright 2021 - Fabcart. All rights reserved.
+                <a href="https://www.StadiumBooking.com/" class="float-right">www.fundaofwebit.com</a>
+            </p>
+        </div>
+        <br />
+        <a href="~/StadiumBooking/Index"><input type="button" value="خروج" /></a>
+
+    </div>
+
+}
+
+
+

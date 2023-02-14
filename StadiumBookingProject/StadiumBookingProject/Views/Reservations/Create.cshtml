@@ -1,0 +1,241 @@
+﻿@model StadiumBookingProject.Models.Reservations2
+
+@using (Html.BeginForm("Create", "Reservations", @*new {id =2 },*@ FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div style="color:red;font-size:15px">
+        @ViewBag.message
+    </div>
+   
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <form class="tbl_inPaymentBackColor" >
+       
+
+        <table class="tbl_inPayment">
+            <tr>
+
+                <td class="tbl_inPaymentTR">@Html.LabelFor(model => model.full_name, "الاسم الكامل", htmlAttributes: new { @class = "control-label col-md-2" }):</td>
+                <td>
+                    @Html.EditorFor(model => model.full_name, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.full_name, "", new { @class = "text-danger" })
+                </td>
+
+                @*<input type="text" value="@Convert.ToString(ViewBag.hour)" disabled />*@
+
+                <td class="tbl_inPaymentTR2">
+                    @Html.LabelFor(model => model.Stadiums.Hour, "الساعات", htmlAttributes: new { @class = "control-label col-md-2" })
+                    :
+                </td>
+                <td>
+                    @Html.Editor("hour", null, new { htmlAttributes = new { @class = "input", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Stadiums.Hour, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                @*<td class="tbl_inPaymentTR">@Html.LabelFor(model => model.Acc_Id, "حساب البريد الإلكتروني", htmlAttributes: new { @class = "LabelOfPay" }):</td>
+                    <td>
+                        @Html.EditorFor(model => model.Acc_Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Acc_Id, "", new { @class = "text-danger" })
+                    </td>*@
+                <td class="tbl_inPaymentTR">@Html.LabelFor(model => model.Email, "حساب البريد الإلكتروني", htmlAttributes: new { @class = "control-label col-md-2" }):</td>
+                <td>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.LabelFor(model => model.Stadiums.Price, " السعر لساعة", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.Editor("price1", null, new { htmlAttributes = new { @class = "input", @readonly = "readonly", @id = "one_price_hour" } })
+                    @Html.ValidationMessageFor(model => model.Stadiums.Price, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.mobile, "الجوال", htmlAttributes: new { @class = "control-label col-md-2" }):
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.mobile, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.LabelFor(model => model.hours, "الساعات المختارة", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.hours, new { htmlAttributes = new { @class = "input", onChange = "OnClickfunctionHours()", @id = "hours" } })
+                    @Html.ValidationMessageFor(model => model.hours, "", new { @class = "text-danger" })
+                </td>
+               
+
+            </tr>
+            <tr>
+
+                <td class="tbl_inPaymentTR">@Html.LabelFor(model => model.date, "التاريخ المختار", htmlAttributes: new { @class = "control-label col-md-2" }):</td>
+                <td>
+                    @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+                </td>
+                <td>@Html.LabelFor(model => model.earnest, "العربون", htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                <td>
+                    @Html.EditorFor(model => model.earnest, new { htmlAttributes = new { @class = "input", onChange = "OnClickfunction()", @id = "earnest" } })
+                    @Html.ValidationMessageFor(model => model.earnest, "", new { @class = "text-danger" })
+                    <div id="box" style="display:none;color:red">
+                        !!! The earnest is more than the stadium price.
+                    </div>
+                </td>
+               
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.time, "الوقت المختار", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.time, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.time, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.LabelFor(model => model.residual, "المتبقي", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.residual, new { htmlAttributes = new { @class = "input", @readonly = "readonly", @id = "residual" } })
+                    @Html.ValidationMessageFor(model => model.residual, "", new { @class = "text-danger" })
+                </td>
+               
+               
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Pay_Pal_Number, " PayPal رقم", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Pay_Pal_Number, new { htmlAttributes = new { @class = "input" } })
+                    @Html.ValidationMessageFor(model => model.Pay_Pal_Number, "", new { @class = "text-danger" })
+
+
+                </td>
+                <td>
+                    @Html.LabelFor(model => model.price, "السعر كامل", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "input", @readonly = "readonly", @id = "fullprice" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+
+
+                </td>
+                
+
+            </tr>
+            
+            <tr>
+               <td>
+                   @Html.LabelFor(model => model.VIP, "VIP رقم", htmlAttributes: new { @class = "control-label col-md-2" })
+               </td>
+               <td>
+                   @Html.EditorFor(model => model.VIP, new { htmlAttributes = new { @class = "input" } })
+                   @Html.ValidationMessageFor(model => model.VIP, "", new { @class = "text-danger" })
+               </td>
+                <td>
+                    @Html.LabelFor(model => model.Serv_Id, "الخدمات", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.DropDownList("Serv_Id", null, htmlAttributes: new { @class = "input", onChange = "getServPrice()" ,@id= "Serv_Id1" })
+                    @Html.ValidationMessageFor(model => model.Serv_Id, "", new { @class = "text-danger" })
+                </td>
+                
+           </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Stadiums.Name, "إسم الملعب", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.Editor("Stadium_Id", null, new { htmlAttributes = new { @class = "input", @readonly = "readonly" } })
+
+
+                    @*@Html.DropDownList("Stadium_Id", null, htmlAttributes: new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.Stadium_Id, "", new { @class = "text-danger" })
+                </td>
+                @*<td>
+                    @Html.Label("Serv_Price", "سعر الخدمة", htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                   @Html.Editor("Serv_Price", null,new { htmlAttributes =new { @class = "input", @readonly = "readonly", @id = "Serv_Price" } })
+                    @Html.ValidationMessageFor(model => model.Services.Serv_Price, "", new { @class = "text-danger" })
+                </td>*@
+                <td><input class="btn_sub" type="submit" value="تأكيد" /></td>
+                <td>
+
+                    <a href="~/StadiumBooking/Index">
+                        <input class="btn_sub2" value="خروج" />
+                    </a>
+                </td>
+            </tr>
+        
+        </table>
+       
+
+    </form>
+}
+
+<div style="margin-left:3%">
+    @Html.ActionLink("Back to List", "../StadiumBooking/Index")
+</div>
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+    //function OnClickfunctionServ() {
+    //    var Serv_Price1 = document.getElementById("Serv_Price").value;
+    //    document.getElementById("fullprice").value = Serv_Price1
+    //};
+    function OnClickfunction() {
+        var y =Number( document.getElementById("earnest").value);
+        var x =Number( document.getElementById("fullprice").value);
+        if (y > x)
+        {
+            const box = document.getElementById('box');
+            box.style.display = 'block';
+            document.getElementById("residual").value = null;
+
+        }
+        else {
+            const box = document.getElementById('box');
+            box.style.display = 'none';
+            document.getElementById("residual").value = x - y;
+        }
+      
+    }
+    function OnClickfunctionHours() {
+        const hours = document.getElementById("hours").value;
+        const one_price_hour = document.getElementById("one_price_hour").value;
+
+        document.getElementById("fullprice").value = hours * one_price_hour
+
+    }
+    //function getServPrice() {
+    //    $.ajax({
+    //        async: true,
+    //        method: 'GET',
+    //        dataType: 'JSON',
+    //        contentType: 'application/json; charset=utf-8',
+    //        url: '/Reservations/getLecture1',
+    //        data: { S_name: document.getElementById("Serv_Id1").textContent },
+    //        success: function (data) {
+    //            document.getElementById("Serv_Price").value = data[0].Serv_Price;
+    //            OnClickfunctionServ();
+    //        },
+    //        error: function () {
+    //            console.log("There is a proplem not get the Lecture!!!")
+    //        }
+
+    //    });
+    
+</script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<br /><br /><br /><br /><br /><br /><br />
+
+
+
+

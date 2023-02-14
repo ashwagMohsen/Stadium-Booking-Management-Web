@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WonerType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservations_Accounts" FromRole="Accounts" ToRole="Reservations" />
+  </EntityType>
+  <EntityType Name="Reservations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hours" Type="Int32" />
+    <Property Name="earnest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="residual" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stadium_Id" Type="Int32" />
+    <Property Name="Acc_Id" Type="Int32" />
+    <NavigationProperty Name="Accounts" Relationship="Self.FK_Reservations_Accounts" FromRole="Reservations" ToRole="Accounts" />
+    <NavigationProperty Name="Stadiums" Relationship="Self.FK_Reservations_Stadiums" FromRole="Reservations" ToRole="Stadiums" />
+    <Property Name="Serv_Id" Type="Int32" />
+    <NavigationProperty Name="Services" Relationship="BookingModel.FK_Reservations_Services" FromRole="Reservations" ToRole="Services" />
+    <Property Name="time" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Stadiums">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservations_Stadiums" FromRole="Stadiums" ToRole="Reservations" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Hour" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Reservations_Accounts">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+    <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="Acc_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservations_Stadiums">
+    <End Role="Stadiums" Type="Self.Stadiums" Multiplicity="0..1" />
+    <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stadiums">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="Stadium_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservations" />
+    <EntitySet Name="Stadiums" EntityType="Self.Stadiums" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Reservations_Accounts" Association="Self.FK_Reservations_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservations_Stadiums" Association="Self.FK_Reservations_Stadiums">
+      <End Role="Stadiums" EntitySet="Stadiums" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <EntitySet Name="Services" EntityType="BookingModel.Services" />
+    <AssociationSet Name="FK_Reservations_Services" Association="BookingModel.FK_Reservations_Services">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Serv_Id" />
+    </Key>
+    <Property Name="Serv_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Serv_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reservations" Relationship="BookingModel.FK_Reservations_Services" FromRole="Services" ToRole="Reservations" />
+  </EntityType>
+  <Association Name="FK_Reservations_Services">
+    <End Type="BookingModel.Services" Role="Services" Multiplicity="0..1" />
+    <End Type="BookingModel.Reservations" Role="Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="Serv_Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="Serv_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

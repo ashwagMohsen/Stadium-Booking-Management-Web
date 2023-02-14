@@ -1,0 +1,112 @@
+﻿@model StadiumBookingProject.Models.Reservations
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<div style="margin:10%;font-size:20px;color:darkgreen">
+    <h2>تفاصيل</h2>
+    <br /><br />
+    <h4>الحجوزات</h4>
+    <hr />
+    <br /><br />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.full_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.full_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.earnest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.earnest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.residual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.residual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accounts.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accounts.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stadiums.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stadiums.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Services.Serv_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Services.Serv_Name)
+        </dd>
+
+    </dl>
+    <br /><br />
+
+    <p>
+        @Html.ActionLink("الرجوع الى الرئيسية", "Index")
+    </p>
+</div>
+

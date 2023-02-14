@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookingModelStoreContainer" CdmEntityContainer="BookingEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="BookingModel.Accounts">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="WonerType" ColumnName="WonerType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="BookingModel.Reservations">
+        <MappingFragment StoreEntitySet="Reservations">
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="Serv_Id" ColumnName="Serv_Id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="hours" ColumnName="hours" />
+          <ScalarProperty Name="earnest" ColumnName="earnest" />
+          <ScalarProperty Name="residual" ColumnName="residual" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="Stadium_Id" ColumnName="Stadium_Id" />
+          <ScalarProperty Name="Acc_Id" ColumnName="Acc_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stadiums">
+      <EntityTypeMapping TypeName="BookingModel.Stadiums">
+        <MappingFragment StoreEntitySet="Stadiums">
+          <ScalarProperty Name="Hour" ColumnName="Hour" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BookingModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="BookingModel.Services">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Serv_Name" ColumnName="Serv_Name" />
+          <ScalarProperty Name="Serv_Id" ColumnName="Serv_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

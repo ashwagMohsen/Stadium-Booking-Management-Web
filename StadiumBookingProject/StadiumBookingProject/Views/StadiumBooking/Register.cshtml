@@ -1,0 +1,54 @@
+﻿@model StadiumBookingProject.Models.Accounts2
+
+@{
+  Layout = "~/Views/Shared/_Layout2.cshtml";
+    ;
+
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "StadiumBooking"@*, new { ReturnUrl = ViewBag.ReturnUrl }*@, FormMethod.Post@*, new { @class = "form-horizontal", role = "form" }*@))
+{
+    @Html.AntiForgeryToken()
+
+    <section class="Account">
+
+
+        <div class="container">
+            <h1 class="text-center"> إنشاء&nbsp;&nbsp;<span>حساب</span></h1>
+            <br />
+            <br />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <table class="table1">
+                <tr>
+                    <td>@Html.TextBoxFor(m => m.Email, new { @class = "input"})</td>
+                    @Html.ValidationMessageFor(model => model.Email)
+                    <td><label>البريد الالكتروني</label> </td>
+                </tr>
+                <tr>
+                    <td>@Html.PasswordFor(m => m.Password, new { @class = "input" })</td>
+                    @Html.ValidationMessageFor(model => model.Password)
+                    <td><label>كلمة المرور</label></td>
+                </tr>
+                <tr>
+                    <td>@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input" })</td>
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                    <td><label>تأكيد كلمة المرور</label></td>
+                </tr>
+            </table>
+            <div class="buttons">
+                <a href="~/StadiumBooking/Index">
+                    <button type="button" class="back">خروج</button>
+                </a>
+                <button type="submit" class="start">إنشاء</button>
+
+            </div>
+            <br>
+            <a href="~/StadiumBooking/Login"><div class="reg_lnk">!تسجيل الدخول</div></a>
+
+        </div>
+     
+    </section>
+    <br />
+}

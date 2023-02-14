@@ -1,0 +1,75 @@
+﻿@model StadiumBookingProject.Models.Accounts2
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@using (Html.BeginForm("Login", "StadiumBooking", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <section class="Account">
+        <div class="container">
+            <div style="color:red;font-size:20px;text-align:center">
+                @ViewBag.message
+            </div>
+            <h1 class="text-center">تسجيل &nbsp;&nbsp;<span>الدخول</span> </h1>
+            <br /><br />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <table cellspacing="2" cellpadding="1" class="table1">
+                <tr>
+                
+                    <td>
+                        @{ List<string>
+                  list = new List<string>
+                      (2) { "مدير", "عميل" };}
+
+                        @Html.DropDownListFor(model => model.WonerType, new SelectList(list), "نوع المستخدم", new { @class= "input" })
+
+
+                        @*@Html.DropDownListFor(@Model=>Model.WonerType, null, htmlAttributes: new { @class = "form-control" })*@
+                        @Html.ValidationMessageFor(model=> model.WonerType, "", new { @class = "text-danger" })
+              </td>
+                    <td>
+                        <label>النوع</label>
+
+                    </td>
+            </tr >
+            <tr >
+
+                <td >
+                @*<input type="text" />*@
+                    @Html.TextBoxFor(model => model.Email, new { @class = "input" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                </td >
+                <td >
+                    <label > البريد الالكتروني </label >
+                </td >
+            </tr >
+            <tr >
+                <td >
+                @*<input type="text" />*@
+                    @Html.PasswordFor(model => model.Password, new { @class = "input" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                    </td>
+                    <td>
+                        <label>كلمة المرور</label>
+                    </td>
+
+                </tr>
+
+            </table>
+            <div class="buttons">
+                <a href="~/StadiumBooking/Index"><button type="button" class="back" >خروج</button></a>
+                <button class="start" type="submit">تسجيل</button>
+
+            </div>
+            <br />
+            <a href="~/StadiumBooking/Register"><div class="reg_lnk">!إنشاء حساب جديد</div></a>
+        </div>
+    </section>
+                            }
