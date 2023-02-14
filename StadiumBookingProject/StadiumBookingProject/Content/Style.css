@@ -1,0 +1,549 @@
+* {
+    margin:0 auto;
+    box-sizing: border-box;
+    font-family: 'El Messiri', sans-serif;
+  }
+  .searchText{
+      border-color:green;
+  }
+  @font-face {
+    font-family: 'El Messiri';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/K2FhfZBRmr9vQ1pHEey6GIGo8_pv3myYjuXwe55ijDz-oQ.woff2");
+    unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+  }
+body{
+        font-family: 'El Messiri', sans-serif;
+
+    /*background: url("images/pale-job-search8.png") no-repeat  right ;
+background-attachment:fixed;
+background-color:#b7efb5;*/
+  position: relative;
+
+}
+.footerAlign{
+    text-align:center;
+}
+.imageOfStadium1{
+    width:100%;
+    height:100%;
+    float:left;
+    position:absolute;
+    top:0px;
+    bottom:30px;
+}
+.imageOfStadium2{
+    width: 700px;
+    height: 500px;
+    float:right;
+      /*width:350px;
+    height:350px;*/
+    top:0px;
+    bottom:30px;
+}
+footer p{
+    text-align:center;
+}
+.active, .sactive:hover {
+  background-color: green;
+     color: #FFFFFF ;
+
+}
+/*var btnContainer = document.getElementById("myDIV");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}*/
+
+
+.FirstparagraphOfHome1{
+    text-align:right;
+    margin-right: 2%;
+    font-size:20px;
+    color:darkgreen;
+}
+.FirstparagraphOfHome2{
+    text-align:right;
+    margin-right: 33%;
+    font-size:20px;
+    color:darkgreen;
+}
+.btnLoginHome{
+    height:40px;width:140px;
+    background-color:darkgreen;
+    color:white;
+    float:right;
+    font-size:15px;
+    padding: 8px 20px;
+    margin-right: 2%;
+   border-radius:4px;
+   cursor:pointer;
+   border:none;
+}
+.tbl_inPayment{
+    width:65%;
+    direction:rtl;
+    margin-top:40px;
+            background-color: #B7EFC5;
+            
+    box-shadow: 0 3px 6px #10451d;
+   
+    border-radius: 4px;
+
+}
+.tbl_inPaymentBackColor{
+    border: 3px outset darkgreen;
+    border-radius:25px;
+            background-color: #B7EFC5;
+   
+}
+.tbl_inPaymentTR {
+    width: 60%;
+
+}   
+.tbl_inPaymentTR2{
+    width:65%;
+}
+/*input{
+    border-radius: 230px;
+    height:40px;
+    width:250px
+}*/
+.LabelOfPay{
+    color: #155D27;
+    font-size:25px;
+}
+.LabelOfPayHour{
+    padding-right:50%;
+}
+.LabelOfPayFullPrice{
+    padding-right:45%;
+}
+.btn_sub{
+    float:right;
+    margin-right:23%;
+    background-color: darkgreen ;
+    color: #FFFFFF ;
+    border: 0;
+    width:100px;
+    height:30px;
+    font-size: 17px;
+    border-radius: 3px;
+    text-align: center;
+}
+.btn_sub2{
+    float:right;
+    margin-right:1%;
+    background-color: #E3514B ;
+    color: #FFFFFF ;
+    border: 0;
+   width:100px;
+    height:30px;
+    font-size: 17px;
+    border-radius: 3px;
+    text-align: center;
+}
+.HomePageHead{
+    text-align:right;
+    margin-right: 2%;
+    font-size:60px;
+    font-weight:bold;
+    color:#10451d;
+    /*position:relative;*/
+}
+.HomePageHead span{
+    color:#E4514A
+}
+.HomePageHead2{
+    text-align:right;
+    margin-right: 2%;
+    font-size:60px;
+    font-weight:bold;
+    color:#E3514A;
+}
+.HomePageHead3{
+    text-align:right;
+    margin-right: 33%;
+    font-size:60px;
+    font-weight:bold;
+    color:#E3514A;
+    
+}
+.HomePageHead3DIV{
+    height:500px;
+        width:500px
+;
+    margin-right:50px; 
+    padding-top:180px;
+}
+.containerStadium1{
+    color: #208B3A;
+    text-align:center;
+    align-items:center;
+    font-size:20px;
+}
+.containerStadiumIMG{
+    border-radius: 25px;
+    height:100%;
+    width:100%;
+
+}
+.containerStadium{
+    background-color: #B7EFC5;
+    position:relative;
+     height:300px;
+    width:340px;
+}
+.BackColorOfStadium{
+        background-color: #B7EFC5;
+        width:100%;
+         height:620px;
+    position:relative;
+}
+#Tawasel{
+            background-color: #B7EFC5;
+
+}
+.BackColorOfStadium2{
+    background-color:white;
+    width:100%;
+    height:620px;
+    position:relative;
+}
+#WhoWeAre{
+        background-color:white;
+
+}
+.BackColorOfStadiumDIV{
+      background-color: #B7EFC5;
+      width:300PX;
+
+}
+.BackColorOfStadiumHEAD{
+     text-align:center;
+     color: #155D27;
+     background-color: #B7EFC5;
+     font-size:30px;
+     font-weight:bold;
+
+}
+.BackColorOfStadiumPARA{
+    text-align:center;
+    color: #25A244;
+    background-color: #B7EFC5;
+
+}
+.TableOfStadium{
+    width:1400px;
+    cellspacing:10;
+    cellpadding:3;
+    border-color:#B7EFC5;
+    background-color: #B7EFC5;
+
+      
+}
+/*------------------------------------------Accounts---------------------*/
+.Body{
+       background: url('../images/pale-job-search8.png') no-repeat  right;
+
+    background-attachment:fixed;
+    background-color:#b7efb5;
+}
+
+
+.Account .container {
+    /*border: 1px solid #10451d;*/
+    background-color: transparent;
+    height: 600px;
+    width: 550px;
+    color: #10451d;
+    font-size: 1.5em;
+    box-shadow: 0 3px 6px #10451d;
+    text-align: right;
+    margin-left: 450px;
+    margin-top: 80px;
+    border-radius: 4px;
+}
+/*.Account{
+     background: url('../images/pale-job-search8.png') no-repeat  right;
+
+    background-attachment:fixed;
+    background-color:#b7efb5;
+}*/
+
+.Account .container h1{
+    font-size: 2em;
+    text-align: center;
+    padding-top: 50px;
+}
+.Account .container h1 span{
+    color: #E4514A;
+}
+/*.Account .container*/ .input{
+    background-color: transparent;border-top: 0px;border-left: 0px;border-right: 0px;
+    margin:20px;
+    width: 270px;
+    cursor: pointer;
+}
+.Account .container label{
+   padding-right: 0px;
+}
+.Account .container .buttons{
+    text-align: left;
+    margin-left: 55px;
+    }
+.Account .container button{
+        cursor: pointer;
+        height: 40px;
+        width: 120px;
+        color: white;
+        font-size: 19px;
+        margin: 5px;
+        text-align: center;
+        border: 0px;
+        border-radius: 3px;
+    }
+    .Account .container .start{
+        background-color:#10451d ;
+       
+    }
+    .Account .container .back{
+        background-color:#E4514A ;
+       
+    }
+.Account .container .reg_lnk{ 
+    margin-top: 10px; text-align:center; color: #36513d;font-size: 20px;
+    cursor: pointer;
+}
+
+/*.Account .container*/ .table1{
+    width: 500px;
+     background-color: transparent;
+   
+    color: #10451d;
+    text-align: right;
+}
+.Account .container .keepPassword {
+    text-align: right;
+}
+.Account .container .keepPassword label{margin-left:0px;}
+.Account .container .keepPassword input{cursor: pointer;margin-right: 10px; margin-left: 2px;
+    width: 10px;}
+
+/*------------------------------------------########---------------------*/
+
+.header {
+  overflow: hidden;
+ /*  background-color: #f1f1f1;*/
+  padding: 20px 10px;
+  margin:0px;
+  width:100%;
+  height:80px;
+}
+.header .aLogo {
+  padding: 2px;
+}
+.header a {
+  float: right;
+  color: darkgreen;
+  text-align:center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.login{
+    
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 2px;
+  background-color: green;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: 60px;
+}
+
+.header .aLogo img {
+  margin-right:101px
+  ;margin-top:0px;padding-top:0px;
+}
+.logoOfStadium{
+    float:right;
+    width:300px;
+    height:50px;
+
+}
+
+.header-right a:hover {
+  background-color: green;
+  color: white;
+
+}
+.header-right a:focus {
+  background-color: green;
+  color: white;}
+:target {
+  background-color: green;
+  color: white;}
+
+
+
+.header-right {
+  float: left;
+ color:green;
+ margin-left:90px;
+  /*width:70%;*/
+  /*text-align:left;*/
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+}
+
+#color{
+    background-color:#92E6A7
+}
+
+
+.containerStadium .btn{
+     position: absolute;
+     margin-right:0px;
+          margin-top:35px;
+          width:100px;
+          height:35px;
+          font-size:20px;
+          color:white;
+             top:70%;
+            right :64%;
+            background-color: #E3514A;
+            border-radius: 3px;
+            border: 0;
+        }
+/*.container .btn{
+            position: absolute;
+            top:70%;
+            right :70%;
+            background-color: #E3514A;
+            color: #EF9D9A;
+            border-radius: 3px;
+            border: 0;
+        }*/
+.d{
+  position: absolute;
+  top: 1220px;
+  left: 90px;
+}
+#colorq{
+  position: absolute;
+  top: 1900px;
+  left: 600px;
+}
+.muzna{
+    width: 30% ;
+    height: 50%;
+}
+/*------------------------------------------invoice---------------------*/
+ h1,h2,h3,h4,h5,h6{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        .container2{
+            width: 50%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 20px;
+        }
+        .brand-section{
+           background-color: green;
+           padding: 10px 40px;
+        }
+        .logo{
+            width: 50%;
+        }
+
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col-6{
+            width: 50%;
+            flex: 0 0 auto;
+        }
+        .text-white{
+            color: #fff;
+        }
+        .company-details{
+            float: right;
+            text-align: right;
+        }
+        .body-section{
+            padding: 16px;
+            border: 3px solid green
+        }
+        .heading{
+            font-size: 20px;
+            margin-bottom: 08px;
+        }
+        .sub-heading{
+            color: #262626;
+            margin-bottom: 05px;
+        }
+        table{
+            background-color: #fff;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table thead tr{
+            border: 1px solid #111;
+            background-color: #f2f2f2;
+        }
+        table td {
+            vertical-align: middle !important;
+            text-align: center;
+        }
+        table th, table td {
+            padding-top: 08px;
+            padding-bottom: 08px;
+        }
+        .table-bordered{
+            box-shadow: 0px 0px 5px 0.5px gray;
+        }
+        .table-bordered td, .table-bordered th {
+            border: 1px solid #dee2e6;
+        }
+        .text-right{
+            text-align: end;
+        }
+        .w-20{
+            width: 20%;
+        }
+        .float-right{
+            float: right;
+        }
